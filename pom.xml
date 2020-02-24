@@ -12,7 +12,7 @@
     <artifactId>fmtok8s-monolith</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>FMTOK8S :: Monolith Application</name>
-    <description>FMTOK8S :: Monolith Application</description>
+    <description>From Monolith to K8s :: Monolith Application</description>
 
     <properties>
         <java.version>1.8</java.version>
