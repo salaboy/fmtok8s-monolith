@@ -27,7 +27,7 @@
 <div class="block conference">
     <div class="container">
         <h1>Conference Site</h1>
-        <#if version??><h2>Monolith - V${version}</h2></#if>
+        <#if version??><h2><a href="https://github.com/salaboy/fmtok8s-monolith">Monolith</a> - V${version}</h2></#if>
         <h4><a href="/backoffice">Back Office Access</a></h4>
 
     </div>
