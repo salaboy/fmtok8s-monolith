@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.salaboy.conferences</groupId>
     <artifactId>fmtok8s-monolith</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.12</version>
     <name>FMTOK8S :: Monolith Application</name>
     <description>From Monolith to K8s :: Monolith Application</description>
 
