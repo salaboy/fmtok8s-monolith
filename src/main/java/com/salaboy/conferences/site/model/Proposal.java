@@ -13,7 +13,7 @@ public class Proposal {
 
     @Id
     @GenericGenerator(name="system-uuid", strategy = "uuid")
-    @GeneratedValue(generator="system-uuid" , strategy = AUT)
+    @GeneratedValue(generator="system-uuid")
     private String id;
     private String title;
     private String description;
