@@ -1,16 +1,24 @@
 package com.salaboy.conferences.site.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.Objects;
 import java.util.UUID;
 
+@Entity(name = "agenda_item")
 public class AgendaItem {
 
+    @Id
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
+    @GeneratedValue(generator="system-uuid")
     private String id;
     private String title;
     private String author;
     private String day;
     private String time;
-
 
     public AgendaItem() {
         this.id = UUID.randomUUID().toString();
