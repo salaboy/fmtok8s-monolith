@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  monolith_database:
+    container_name: monolith_db
+    image: mysql/mysql-server:5.7
+    restart: on-failure
+    ports:
+    - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD:
+      MYSQL_DATABASE:
+      MYSQL_USER:
+      MYSQL_PASSWORD:
