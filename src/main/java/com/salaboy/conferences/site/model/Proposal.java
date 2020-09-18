@@ -22,9 +22,7 @@ public class Proposal {
     private boolean approved = false;
     private ProposalStatus status = ProposalStatus.PENDING;
 
-    public Proposal() {
-        this.id = UUID.randomUUID().toString();
-    }
+    public Proposal() {}
 
     public Proposal(String title, String description, String author, String email) {
         this.id = UUID.randomUUID().toString();
