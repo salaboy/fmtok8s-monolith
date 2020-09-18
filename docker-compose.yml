@@ -1,5 +1,8 @@
 version: '3'
-
+#
+# There are here default credentials to create container monolith_db
+# by default we called 'monolith'
+#
 services:
   monolith_database:
     container_name: monolith_db
@@ -8,7 +11,12 @@ services:
     ports:
     - "3307:3306"
     environment:
-      MYSQL_ROOT_PASSWORD:
-      MYSQL_DATABASE:
-      MYSQL_USER:
-      MYSQL_PASSWORD:
+      MYSQL_ROOT_PASSWORD: monolith
+      MYSQL_DATABASE: monolith
+      MYSQL_USER: monolith
+      MYSQL_PASSWORD: monolith
+  monolith_application:
+    container_name: monolith_app
+    image: salaboy/fmtok8s-monolith
+    ports:
+    - "8080:8080"
