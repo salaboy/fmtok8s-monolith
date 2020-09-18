@@ -21,11 +21,10 @@ public class ProposalService {
         if (!pending) {
 
             return new HashSet<>(repository.findAll());
+
         } else {
-            return repository.findAll()
-                    .stream()
-                    .filter(p -> p.getStatus().equals(ProposalStatus.PENDING))
-                    .collect(Collectors.toSet());
+
+            return new HashSet<>(repository.findByStatus(ProposalStatus.PENDING));
         }
     }
 }
