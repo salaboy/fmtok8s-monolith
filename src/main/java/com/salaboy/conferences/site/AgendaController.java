@@ -2,14 +2,14 @@ package com.salaboy.conferences.site;
 
 import com.salaboy.conferences.site.model.AgendaItem;
 import com.salaboy.conferences.site.repository.AgendaItemRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
-import lombok.extern.slf4j.Slf4j;
-
-import javax.transaction.Transactional;
 
 @RestController
 @RequestMapping("/agenda/")
@@ -20,7 +20,6 @@ public class AgendaController {
     private AgendaItemRepository agendaItemRepository;
 
     @PostMapping()
-    @Transactional
     public String newAgendaItem(@RequestBody AgendaItem agendaItem) {
 
         log.info("> New Agenda Item Received: " + agendaItem);
