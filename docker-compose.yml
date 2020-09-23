@@ -13,7 +13,7 @@ services:
       MYSQL_PASSWORD: ${MONOLITH_DATABASE_PASSWORD}
   monolith_application:
     container_name: monolith_app
-    image: monolith
+    image: gcr.io/camunda-researchanddevelopment/fmtok8s-monolith
     ports:
     - "8080:8080"
     environment:
