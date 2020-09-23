@@ -1,15 +1,11 @@
 version: '3'
-#
-# There are here default credentials to create container monolith_db
-# by default we called 'monolith'
-#
 services:
   monolith_database:
     container_name: monolith_db
     image: mysql/mysql-server:5.7
     restart: on-failure
     ports:
-    - "3307:3306"
+    - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: ${MONOLITH_DATABASE_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MONOLITH_DATABASE_NAME}
@@ -17,15 +13,14 @@ services:
       MYSQL_PASSWORD: ${MONOLITH_DATABASE_PASSWORD}
   monolith_application:
     container_name: monolith_app
-    image: salaboy/fmtok8s-monolith
+    image: monolith
     ports:
     - "8080:8080"
     environment:
       SPRING_PROFILES_ACTIVE: prod
-      SPRING_DATASOURCE_URL: jdbc:mysql://monolith_database/${MONOLITH_DATABASE_NAME}?createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_DATABASE_NAME: ${MONOLITH_DATABASE_NAME}
+      SPRING_DATASOURCE_DATABASE_URL: monolith_database
       SPRING_DATASOURCE_USER: ${MONOLITH_DATABASE_USER}
       SPRING_DATASOURCE_PASSWORD: ${MONOLITH_DATABASE_PASSWORD}
-      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
-      SPRING_JPA_DIALECT: org.hibernate.dialect.MySQL5Dialect
     depends_on:
       - monolith_database
