@@ -1,15 +1,14 @@
 package com.salaboy.conferences.site.model;
 
 public class ProposalDecision {
-    private boolean approved;
 
+    private boolean approved;
 
     public ProposalDecision() {
     }
 
     public ProposalDecision(boolean approved) {
         this.approved = approved;
-
     }
 
     public boolean isApproved() {

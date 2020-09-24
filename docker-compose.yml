@@ -1,0 +1,26 @@
+version: '3'
+services:
+  monolith_database:
+    container_name: monolith_db
+    image: mysql/mysql-server:5.7
+    restart: on-failure
+    ports:
+    - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MONOLITH_DATABASE_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MONOLITH_DATABASE_NAME}
+      MYSQL_USER: ${MONOLITH_DATABASE_USER}
+      MYSQL_PASSWORD: ${MONOLITH_DATABASE_PASSWORD}
+  monolith_application:
+    container_name: monolith_app
+    image: gcr.io/camunda-researchanddevelopment/fmtok8s-monolith
+    ports:
+    - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      SPRING_DATASOURCE_DATABASE_NAME: ${MONOLITH_DATABASE_NAME}
+      SPRING_DATASOURCE_DATABASE_URL: monolith_database
+      SPRING_DATASOURCE_USER: ${MONOLITH_DATABASE_USER}
+      SPRING_DATASOURCE_PASSWORD: ${MONOLITH_DATABASE_PASSWORD}
+    depends_on:
+      - monolith_database
